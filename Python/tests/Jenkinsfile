@@ -1,0 +1,15 @@
+@Library("my-libraries") _
+pipeline {
+    agent{
+        label 'server'
+    }
+    stages {
+        stage('compile cpp file') {
+            steps {
+                myString()
+                
+                
+            }
+        }
+   }
+}

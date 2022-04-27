@@ -1,0 +1,13 @@
+Name:Surname:Age:Profession:Gender
+Joseph:Payne:42:Author:Male
+Ann:Gibbs:43:Baker:Female
+William:Atkins:18:Waither:Male
+Elizabeth:Howard:29:Programmer:Female
+Jean F P:Sentre:28:Programmer:Male
+Martha:Slaughton:68:Driver:Female
+Frederik:Green:36:Programmer:Male
+Alice:Rogers:30:Teacher:Female
+Charles W:Foster:19:Programmer:Male
+Mary A:Reggett:48:Doctor:Female
+
+
