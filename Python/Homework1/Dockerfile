@@ -1,5 +1,5 @@
 FROM python
 RUN pip install flask
-COPY . . 
-RUN chmod +x ./app.py
-CMD ["./Python/Homework1/app.py"]
+WORKSPACE /app
+COPY . /app/
+CMD ["flask run", "/app/app.py"]
