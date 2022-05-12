@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-import argparse
 from flask import Flask
 
 app = Flask(__name__)
