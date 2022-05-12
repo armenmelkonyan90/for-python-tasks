@@ -7,7 +7,8 @@ pipeline {
           
          steps {
              
-             dockerComposeUp("prod", "False")
+             step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yml', option: [$class: 'StartService', scale: 1, service: 'server'], useCustomDockerComposeFile: true])
+  
          }
       }
       
