@@ -1,8 +1,16 @@
 #!/usr/bin/python3
+import argparse
+from flask import Flask
 
-def main(n):
-    n -= 1
-    f = [1, 1]
-    for i in range(2, n + 1):
-        f.append(f[i - 1] + f[i - 2])
-    return f[n]
+app = Flask(__name__)
+
+@app.route("/")
+def hello():
+    return "Hello!"
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Pass debug variable')
+    parser.add_argument('--deb', required=True, type=bool, help='boolean debug argument')
+    args = parser.parse_args()
+    app.debug = args.deb
+    app.run(host="0.0.0.0", port="5050")    
