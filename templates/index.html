@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>work_forms</title>
+</head>
+<body>
+    <form action="#" method="post" enctype="multipart/form-data">
+        <div>
+            <p>Name</p>
+            <input placeholder="user" tabindex="1" type="text" name="username">
+        </div>
+        <div>
+            <p>Password</p>
+            <input placeholder="password" tabindex="2" type="password" name="userpass">
+        </div>
+        <div>
+            <p>Phone</p>
+            <input placeholder="phone number" tabindex="3" type="tel" name="phone">
+        </div>
+        <div>
+            <p> Gender </p>
+            <div>
+                <input checked tabindex="4" type="radio" name="gender" value="male">Male
+            </div>
+            <div>
+                <input tabindex="4" type="radio" name="gender" value="female">Female
+            </div>
+        </div>
+        <div>
+            <p>possession</p>
+            
+                <div>
+                    <input tabindex="5" checked type="checkbox" name="bike" value="yes">bike
+                </div>
+                <div>
+                    <input tabindex="6" type="checkbox" name="car" value="yes">car
+                </div>
+                <div><input tabindex="7" disabled type="checkbox" name="apartment" value="yes">apartment
+                </div>                     
+        </div>
+        <div>
+            <p>Additional Information</p>
+            <textarea tabindex="8" name="text"></textarea>
+        </div>
+        <div>
+            <p>Attach a photo </p>
+            <input tabindex="9" type="file" name="photo">
+        </div>
+        <div>
+            <p>Favorite color</p>
+            <select tabindex="10" name="favorite color">
+                <option value="red"> red </option>
+                <option selected value="blue">blue</option>
+                <option value="yellow">yellow</option>
+                <option value="green">green</option>
+            </select>
+        </div>
+        <div>
+            <p>Actions</p>
+            <button tabindex="11" type="submit">Send</button>
+            <button tabindex="12" type="reset">clear</button>
+        </div>
+
+    </form>
+</body>
+</html>

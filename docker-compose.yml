@@ -1,0 +1,15 @@
+version: "3"
+
+services: 
+  server:
+    environment:
+      - DEBUG
+      - FLASK_DEBUG
+    build:
+      context: "."
+      args:
+        - DEBUG=${DEBUG}
+        - FLASK_DEBUG=${FLASK_DEBUG}
+    ports:
+      - "5000:5000"
+
