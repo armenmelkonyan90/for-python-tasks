@@ -9,4 +9,11 @@ pipeline {
             }
         }
     }
+    post {
+        failure {
+            steps {
+                sh "docker container rm -f flaskapp"   
+            }
+        }
+    }
 }
