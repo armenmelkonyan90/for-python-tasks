@@ -1,4 +1,4 @@
-FROM python:3
+FROM python
 RUN pip install flask
 COPY . . 
 RUN chmod +x Python/Homework1/app.py
