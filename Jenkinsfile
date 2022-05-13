@@ -1,29 +1,42 @@
 pipeline {
   agent any
-  environment {
-    commit_sha = "" 
-  }
+  triggers {
+    GenericTrigger(causeString: 'Generic Cause', 
+                   genericVariables: [[key: 'COMMIT_HASH', value: '$.head_commit.id']])
+  } 
   stages {
-    stage("Get Commit SHA") {
-      script {
-        def commitHashForBuild(build) {
-            def scmAction = build?.actions.find { action -> action instanceof jenkins.scm.api.SCMRevisionAction }
-            if (scmAction?.revision instanceof org.jenkinsci.plugins.github_branch_source.PullRequestSCMRevision) {
-                return scmAction?.revision?.pullHash
-            } else if (scmAction?.revision instanceof jenkins.plugins.git.AbstractGitSCMSource$SCMRevisionImpl) {
-                return scmAction?.revision?.hash
-            } else {
-                error("Build doesn't contain revision information. Do you run this from GitHub organization folder?")
-            }
+    stage("Store commit hash") { 
+      steps {
+        script {
+          try {
+            sh """docker exec redis_server redis-cli "set" "BEFORE_TEST" "${COMMIT_HASH}" """
+            sh """docker exec redis_server redis-cli "save" """
+          }
+          catch(Exception err) {
+            error("Unable to store commit hash")
+          }
         }
-
-        commit_sha = commitHashForBuild(currentBuild.rawBuild) 
       }
     }
-    stage("print") {
+    stage('Checkout "Tasks" Repo')  {
       steps {
-        echo "${commit_sha}"
+        script {
+          try {
+            dir('TasksRepo') {
+              git branch: 'main', url: "https://github.com/armenmelkonyan90/for-python-tasks.git"
+            }
+          }
+          catch(Exception err) {
+            error("Unable to clone developer's repo")
+          }
+        }  
       }
+    }
+    stage("Build & Run Testing Container") { 
+      steps {
+        sh "docker build -t temp_test_img ."
+        sh """docker run --rm --name temp_container temp_test_img > answers.txt""" 
+      }  
     }
   }
 }
