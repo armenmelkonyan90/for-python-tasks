@@ -1,6 +1,6 @@
 pipeline {
   agent any
-    properties([[$class: 'RebuildSettings', autoRebuild: false, rebuildDisabled: false], 
+    options([[$class: 'RebuildSettings', autoRebuild: false, rebuildDisabled: false], 
     pipelineTriggers([
       GenericTrigger(
          causeString: 'Generic Cause', 
