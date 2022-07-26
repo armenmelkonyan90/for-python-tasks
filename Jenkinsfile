@@ -26,6 +26,7 @@ pipeline {
         steps {
           sh " cheo 'test stage'"
         } 
+      }
   }
 }
   
