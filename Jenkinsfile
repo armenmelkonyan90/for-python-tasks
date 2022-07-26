@@ -14,10 +14,11 @@ pipeline {
   }
   
     stages {
-      stage('Release') {
-        when {
+      when {
              expression { ref == 'refs/heads/main' }
          }
+      stage('Release') {
+        
          steps {
              sh "echo 'hello world main branch1'"  
          }
