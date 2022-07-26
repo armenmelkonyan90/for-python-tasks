@@ -1,17 +1,18 @@
 pipeline {
   agent any
-  triggers {
-    GenericTrigger(
-        causeString: 'Triggered from release/prerelease', 
-        genericVariables: [
-            [defaultValue: '', key: 'ref', regexpFilter: '', value: '$.ref']
-            ],
-        token: '1234', 
-        tokenCredentialId: ''
-             )
-  }
+    properties([[$class: 'RebuildSettings', autoRebuild: false, rebuildDisabled: false], 
+    pipelineTriggers([
+      GenericTrigger(
+         causeString: 'Generic Cause', 
+         genericVariables: [
+             [defaultValue: '', key: 'ref', regexpFilter: '', value: '$.ref']
+              ], 
+         regexpFilterExpression: '', 
+         regexpFilterText: '', 
+         token: '1234', 
+         tokenCredentialId: '')])])
   
-  stages {
+    stages {
       stage('Release') {
         when {
              expression { ref == 'refs/heads/main' }
