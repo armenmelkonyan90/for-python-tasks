@@ -3,9 +3,8 @@ pipeline {
   triggers {
     GenericTrigger(
         causeString: 'Triggered from release/prerelease', 
-        expressionType("JSONPath") 
         genericVariables: [
-            [defaultValue: '', key: 'ref', regexpFilter: '', value: '$.ref']
+            [defaultValue: '', key: 'ref', regexpFilter: '', value: '$ref']
             ],
              )
   }
