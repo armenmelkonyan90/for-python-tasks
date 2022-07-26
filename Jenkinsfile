@@ -25,6 +25,7 @@ pipeline {
       stage ("test") {
         steps {
           sh " cheo 'test stage'"
-   }
+        } 
+  }
 }
   
