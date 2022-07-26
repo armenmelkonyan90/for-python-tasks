@@ -17,7 +17,7 @@ pipeline {
       
       stage('Release') {
         when {
-             expression { ref == 'refs/heads/main' }
+             expression { ref == 'refs/heads/dev' }
          }
         
          steps {
