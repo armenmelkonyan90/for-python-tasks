@@ -15,7 +15,7 @@ pipeline {
              expression { ref == 'main' }
          }
          steps {
-             sh "echo 'hello world main branch'"  
+             sh "echo 'hello world main branch1'"  
          }
       }
    }
