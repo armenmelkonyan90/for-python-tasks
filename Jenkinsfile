@@ -1,7 +1,7 @@
 pipeline {
   agent any
      
-    pipelineTriggers([
+    Triggers([
       GenericTrigger(
          causeString: 'Generic Cause', 
          genericVariables: [
