@@ -3,7 +3,7 @@ pipeline {
   stages {
       stage('Release') {
          steps {
-             sh "echo 'hello world'"  
+             sh "echo 'hello world dev branch'"  
          }
       }
    }
