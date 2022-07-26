@@ -1,7 +1,7 @@
 pipeline {
   agent any
      
-    triggers([
+  triggers{
       GenericTrigger(
          causeString: 'Generic Cause', 
          genericVariables: [
@@ -11,7 +11,7 @@ pipeline {
          regexpFilterText: '', 
          token: '1234', 
          tokenCredentialId: '')
-    ])
+  }
   
     stages {
       stage('Release') {
