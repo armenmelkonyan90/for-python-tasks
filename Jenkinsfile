@@ -10,7 +10,8 @@ pipeline {
          regexpFilterExpression: '', 
          regexpFilterText: '', 
          token: '1234', 
-         tokenCredentialId: '')])])
+         tokenCredentialId: '')
+    ])
   
     stages {
       stage('Release') {
