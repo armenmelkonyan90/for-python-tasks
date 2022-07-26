@@ -22,6 +22,9 @@ pipeline {
              sh "echo 'hello world main branch1'"  
          }
       }
+      stage ("test") {
+        steps {
+          sh " cheo 'test stage'"
    }
 }
   
