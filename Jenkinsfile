@@ -4,7 +4,7 @@ pipeline {
     GenericTrigger(
         causeString: 'Triggered from release/prerelease', 
         genericVariables: [
-            [defaultValue: '', key: 'ref', regexpFilter: '', value: '$ref']
+            [defaultValue: '', key: 'ref', regexpFilter: '', value: '$.ref']
             ],
         token: '1234', 
         tokenCredentialId: ''
