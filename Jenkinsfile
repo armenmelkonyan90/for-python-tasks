@@ -15,6 +15,9 @@ pipeline {
   }
   
     stages {
+       when {
+             expression { regexpFilterExpression == 'dev#true' }
+         }
       
       stage('Release') {
        
