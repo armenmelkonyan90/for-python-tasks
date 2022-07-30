@@ -5,7 +5,7 @@ pipeline {
       GenericTrigger(
          causeString: 'Generic Cause', 
          genericVariables: [
-             [defaultValue: '', key: 'ref', regexpFilter: '', value: '$.ref']
+             [defaultValue: '', key: 'ref', regexpFilter: '', value: '$.pull_request.base.ref']
               ], 
          regexpFilterExpression: '', 
          regexpFilterText: '', 
@@ -17,7 +17,7 @@ pipeline {
       
       stage('Release') {
         when {
-             expression { ref == 'refs/heads/dev' }
+             expression { ref == 'dev' }
          }
         
          steps {
@@ -26,7 +26,7 @@ pipeline {
       }
       stage ("test") {
         when {
-             expression { ref == 'refs/heads/dev' }
+             expression { ref == 'dev' }
          }
         steps {
           sh " echo 'test stage'"
