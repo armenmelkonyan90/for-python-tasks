@@ -17,7 +17,9 @@ pipeline {
     stages {
       
       stage('Release') {
-       
+        when {
+             expression { regexpFilterExpression == 'dev#true' }
+         }
         
          steps {
              sh "echo 'hello world main branch1'"  
