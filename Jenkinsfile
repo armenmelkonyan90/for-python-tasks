@@ -8,8 +8,8 @@ pipeline {
              [defaultValue: '', key: 'base', regexpFilter: '', value: '$.pull_request.base.ref'],
               [defaultValue: '', key: 'ifmarged', regexpFilter: '', value: '$.pull_request.merged']
               ], 
-         regexpFilterExpression: 'dev#true', 
-         regexpFilterText: '$base#ifmarged', 
+         regexpFilterExpression: '', 
+         regexpFilterText: '', 
          token: '1234', 
          tokenCredentialId: '')
   }
@@ -19,7 +19,7 @@ pipeline {
       
       stage('Release') {
           when {
-             expression { regexpFilterExpression == 'dev#true' }
+             expression { base == 'dev' && ifmerged == true }
          }
         
          steps {
