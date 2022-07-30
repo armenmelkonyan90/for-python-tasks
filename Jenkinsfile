@@ -6,7 +6,7 @@ pipeline {
          causeString: 'Generic Cause', 
          genericVariables: [
              [defaultValue: '', key: 'base', regexpFilter: '', value: '$.pull_request.base.ref'],
-              [defaultValue: '', key: 'ifmarged', regexpFilter: '', value: '$.pull_request.merged']
+              [defaultValue: '', key: 'ifmerged', regexpFilter: '', value: '$.pull_request.merged']
               ], 
          regexpFilterExpression: '', 
          regexpFilterText: '', 
