@@ -19,7 +19,7 @@ pipeline {
       
       stage('Release') {
           when {
-             expression { base == 'dev' && ifmerged == true }
+             expression { base == 'dev' && ifmerged == 'true' }
          }
         
          steps {
